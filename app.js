@@ -5,7 +5,7 @@ const Date = require(__dirname + "/date.js");
 // console.log(Date());
 
 const app = express();
-
+const port = 3000;
 var items = [];
 var workListItem = [];
 
@@ -38,6 +38,6 @@ app.get("/work", function (req, res) {
   res.render("lists", { listTitle: "Work List", newListItems: workListItem });
 });
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || port, function () {
   console.log("app running on port 3000");
 });
