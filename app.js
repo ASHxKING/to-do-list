@@ -1,6 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const Date = require(__dirname + "/date.js")
+const Date = require(__dirname + "/date.js");
+
+// console.log(Date());
 
 const app = express();
 
@@ -14,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get("/", function (req, res) {
+  let day = Date.getDate();
 
   res.render("lists", { listTitle: day, newListItems: items });
 });
@@ -28,9 +31,9 @@ app.post("/", function (request, response) {
     response.redirect("/");
   }
 });
-app.get("/about", function(req,res){
-    res.render("about");
-})
+app.get("/about", function (req, res) {
+  res.render("about");
+});
 app.get("/work", function (req, res) {
   res.render("lists", { listTitle: "Work List", newListItems: workListItem });
 });
