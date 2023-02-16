@@ -1,13 +1,14 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const _ = require("lodash");
+require("dotenv").config();
 
 // const Date = require(__dirname + "/date.js");
 const mongoose = require("mongoose");
 
 mongoose.set("strictQuery", false);
 // setting connection to mongo db
-mongoose.connect("mongodb+srv://ashishak26:Amoeba%40123@cluster0.fjo8ffm.mongodb.net/todolistDB");
+mongoose.connect(process.env.mongouri);
 // /?retryWrites=true&w=majority
 // mongoose.connection.close();
 
