@@ -7,7 +7,9 @@ const mongoose = require("mongoose");
 
 mongoose.set("strictQuery", false);
 // setting connection to mongo db
-mongoose.connect("mongodb://127.0.0.1:27017/todolistDB");
+mongoose.connect("mongodb+srv://ashishak26:Amoeba%40123@cluster0.fjo8ffm.mongodb.net/todolistDB");
+// /?retryWrites=true&w=majority
+// mongoose.connection.close();
 
 const app = express();
 const port = 3000;
